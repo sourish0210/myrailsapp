@@ -12,9 +12,23 @@ class TestappsController < ApplicationController
             render 'new'
         end
     end
-
+    
     def show
         @testapp = Testapp.find(params[:id])
+    end
+
+    def edit
+        @testapp = Testapp.find(params[:id])
+    end
+
+    def update
+        @testapp =Testapp.find(params[:id])
+        if @testapp.update(testapp_params)
+            flash[:notice] = "Data has been updated"
+            redirect_to testapp_path(@testapp)
+        else
+            render 'edit'
+        end
     end
 
     private
