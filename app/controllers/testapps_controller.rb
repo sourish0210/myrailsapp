@@ -35,6 +35,17 @@ class TestappsController < ApplicationController
         @testapp = Testapp.all
     end
 
+    def destroy
+        @testapp = Testapp.find(params[:id])
+        if @testapp.destroy
+            flash[:notice] = "Selected Data has been deleted successfully"
+            redirect_to testapps_path
+        else
+            render 'index'
+            flash[:notice] = "There is an error while deleting the data"
+        end
+    end
+
     private
 
     def testapp_params

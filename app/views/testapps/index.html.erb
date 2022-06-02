@@ -12,6 +12,7 @@
 <td><%= f.project %></td>
 <td><%= link_to "Edit", edit_testapp_path(f) %></td>
 <td><%= link_to "Show", testapp_path(f) %></td>
+<td><%= link_to "Delete", testapp_path(f), method: :delete, data: {confirm: "Are you sure want to delete the data?"} %></td>
 </tr>
 <% end %>
 </table>
