@@ -31,6 +31,10 @@ class TestappsController < ApplicationController
         end
     end
 
+    def index
+        @testapp = Testapp.all
+    end
+
     private
 
     def testapp_params

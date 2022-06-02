@@ -1,0 +1,15 @@
+<h1>This page is to view all data</h1>
+<table>
+<tr>
+<th>Name</th>
+<th>EmployeeID</th>
+<th>Project</th>
+</tr>
+<% @testapp.each do |f| %>
+<tr>
+<td><%= f.name %></td>
+<td><%= f.employeeid %></td>
+<td><%= f.project %></td>
+</tr>
+<% end %>
+</table>
