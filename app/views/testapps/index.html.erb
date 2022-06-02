@@ -10,6 +10,9 @@
 <td><%= f.name %></td>
 <td><%= f.employeeid %></td>
 <td><%= f.project %></td>
+<td><%= link_to "Edit", edit_testapp_path(f) %></td>
+<td><%= link_to "Show", testapp_path(f) %></td>
 </tr>
 <% end %>
 </table>
+<%= link_to "Create a entry", new_testapp_path %>
