@@ -1,4 +1,6 @@
 class TestappsController < ApplicationController
+    before_action :settestapp, only: [:show, :edit, :update, :destroy]
+
     def new
         @testapp = Testapp.new
     end
@@ -14,15 +16,12 @@ class TestappsController < ApplicationController
     end
     
     def show
-        @testapp = Testapp.find(params[:id])
     end
 
     def edit
-        @testapp = Testapp.find(params[:id])
     end
 
     def update
-        @testapp =Testapp.find(params[:id])
         if @testapp.update(testapp_params)
             flash[:notice] = "Data has been updated"
             redirect_to testapp_path(@testapp)
@@ -36,7 +35,6 @@ class TestappsController < ApplicationController
     end
 
     def destroy
-        @testapp = Testapp.find(params[:id])
         if @testapp.destroy
             flash[:notice] = "Selected Data has been deleted successfully"
             redirect_to testapps_path
@@ -50,5 +48,9 @@ class TestappsController < ApplicationController
 
     def testapp_params
         params.require(:testapp).permit(:name, :employeeid, :project)
+    end
+
+    def settestapp
+        @testapp = Testapp.find(params[:id])
     end
 end

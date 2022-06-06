@@ -1,0 +1,26 @@
+<p>
+<% if @testapp.errors.any? %>
+    <ul><h2>This is the error</h2>
+        <% @testapp.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+<% end %>
+</p>
+
+<%= form_for @testapp do |f| %>
+<p>
+    <%=f.label :Name %><br>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <%= f.label :EmployeeID %><br>
+    <%= f.text_field :employeeid %>
+</p>
+<p>
+    <%= f.label :Project %><br>
+    <%= f.text_field :project %>
+</p>
+<%= f. submit :Save %>
+<% end %>
+
+<%= link_to "Back to List", testapps_path %>
